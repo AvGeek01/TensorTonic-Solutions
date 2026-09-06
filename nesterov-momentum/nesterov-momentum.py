@@ -1,0 +1,15 @@
+import numpy as np
+
+def nesterov_momentum_step(w: list, v: list, grad: list, lr: float = 0.01, momentum: float = 0.9) -> dict:
+    """
+    Returns a dictionary with new_w and new_v.
+    """
+    ans={}
+    w=np.array(w,dtype=float)
+    v=np.array(v,dtype=float)
+    grad=np.array(grad,dtype=float)
+    new_v=momentum*v+lr*grad
+    ans['new_w']=w-new_v
+    ans['new_v']=new_v
+    return ans
+    pass
